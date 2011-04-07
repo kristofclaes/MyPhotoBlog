@@ -10,17 +10,6 @@ namespace MyPhotoBlog.Modules
     {
         public AdminModule() : base("/admin")
         {
-            Get[""] = parameters =>
-            {
-                return "Display the login form.";
-            };
-
-            Post["/login"] = parameters =>
-            {
-                // Perform validation, then redirect
-                return Response.AsRedirect("/admin/photos");
-            };
-
             Get["/photos"] = parameters =>
             {
                 return "A list of all the photo's.";
@@ -49,6 +38,18 @@ namespace MyPhotoBlog.Modules
                 // Edit the photo, then redirect
                 string slug = Convert.ToString(parameters.slug);
                 return Response.AsRedirect("/admin/photos/edit/" + slug);
+            };
+
+            Get["/photos/delete/{slug}"] = parameters =>
+            {
+                return String.Format("Are you sure you want to delete the photo called '{0}'?",
+                    parameters.slug);
+            };
+
+            Post["/photos/delete/{slug}"] = parameters =>
+            {
+                // Delete the photo, then redirect
+                return Response.AsRedirect("/admin/photos");
             };
 
             Get["/comments"] = parameters =>

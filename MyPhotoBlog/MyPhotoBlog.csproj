@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="Modules\AdminModule.cs" />
     <Compile Include="Modules\ArchivesModule.cs" />
+    <Compile Include="Modules\AuthenticationModule.cs" />
     <Compile Include="Modules\PhotoblogModule.cs" />
     <Compile Include="Modules\PhotoModule.cs" />
     <Compile Include="Modules\RootModule.cs" />
