@@ -11,7 +11,7 @@ namespace MyPhotoBlog.Modules
         {
             Get["/"] = parameters =>
             {
-                return "Homepage";
+                return View["photodetail"];
             };
         }
     }
