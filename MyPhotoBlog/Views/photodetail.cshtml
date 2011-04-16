@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>My First View</title>
+    <title>@Model.Photo.Name</title>
     <link rel="Stylesheet" type="text/css" href="/Content/Css/reset.css" />
     <link rel="Stylesheet" type="text/css" href="/Content/Css/photoblog.css" />
 
@@ -13,23 +13,40 @@
 <body>
     <header>MyPhotoBlog</header>
     <div id="main">
+        <div id="name">@Model.Photo.Name</div>
         <div id="photo">
-            <img src="" width="960" height="640" />
+            <img src="/Data/@Model.Photo.Filename" />
         </div>
         <div id="exif">
-            <span class="type">Camera:</span> <span id="camera" class="value camera">Sony A200</span>
-            <span class="type">Lens:</span> <span id="lens" class="value">Sony DT 50mm F1.8 SAM</span>
-            <span class="type">Aperture:</span> <span id="aperture" class="value">f/4</span>
-            <span class="type">Exposure:</span> <span id="exposure" class="value">1/250</span>
-            <span class="type">ISO:</span> <span id="iso" class="value">200</span>
+            <span class="type">Camera:</span> <span id="camera" class="value camera">@Model.Photo.Camera</span>
+            <span class="type">Lens:</span> <span id="lens" class="value">@Model.Photo.Lens</span>
+            <span class="type">Aperture:</span> <span id="aperture" class="value">@Model.Photo.Aperture</span>
+            <span class="type">Exposure:</span> <span id="exposure" class="value">@Model.Photo.Exposure</span>
+            <span class="type">ISO:</span> <span id="iso" class="value">@Model.Photo.ISO</span>
         </div>
         <nav>
-            <a href="#" id="previous">&laquo; Previous</a>
-            <a href="#" id="archives">Archives</a>
-            <a href="#" id="next">Next &raquo;</a>
+            @if (Model.HasPrevious)
+            {
+                <a id="previous" href="/photos/@Model.PreviousSlug">&laquo; Previous</a>
+            }
+            else
+            {
+                <span id="previous">&laquo; Previous</span>
+            }
+
+            <a href="/archives" id="archives">Archives</a>
+
+            @if (Model.HasNext)
+            {
+                <a id="next" href="/photos/@Model.NextSlug">Next &raquo;</a>
+            }
+            else
+            {
+                <span id="next">Next &raquo;</span>
+            }
         </nav>
     </div>
-    <footer>MyPhotoBlog is built with <a href="https://github.com/thecodejunkie/Nancy">Nancy</a> and <a href="https://github.com/markrendle/Simple.Data">Simple.Data</a>.</footer>
+    <footer>MyPhotoBlog is built with <a href="https://github.com/NancyFX/Nancy">Nancy</a> and <a href="https://github.com/markrendle/Simple.Data">Simple.Data</a>.</footer>
 
     <script type="text/javascript" src="/Content/Scripts/jquery-1.5.2.min.js"></script>
 </body>

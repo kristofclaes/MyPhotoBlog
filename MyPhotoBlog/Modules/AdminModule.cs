@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Nancy;
+using MyPhotoBlog.Services;
 
 namespace MyPhotoBlog.Modules
 {
     public class AdminModule : PhotoblogModule
     {
-        public AdminModule() : base("/admin")
+        public AdminModule(IDBFactory dbFactory) : base(dbFactory, "/admin")
         {
             Get["/photos"] = parameters =>
             {

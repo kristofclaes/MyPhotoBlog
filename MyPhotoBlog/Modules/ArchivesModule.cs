@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MyPhotoBlog.Services;
 
 namespace MyPhotoBlog.Modules
 {
     public class ArchivesModule : PhotoblogModule
     {
-        public ArchivesModule() : base("/archives")
+        public ArchivesModule(IDBFactory dbFactory) : base(dbFactory, "/archives")
         {
             Get[""] = parameters =>
             {

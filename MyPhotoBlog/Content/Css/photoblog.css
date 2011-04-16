@@ -2,15 +2,18 @@
 
 header, footer { width:960px; margin:auto; padding:10px 20px; }
 
-header, div#photo, footer, div#exif, nav a { background-color:#EFEFEF; }
+header, div#photo, footer, div#exif, nav a, nav span, div#name { background-color:#EFEFEF; }
 
 header { margin-top:10px; font-size:3em; line-height:1.5em; }
 
 div#main { width:1000px; margin:auto; margin-top:10px; margin-bottom:10px; }
 
+div#name { padding:20px; margin-bottom:10px; font-weight:bold; font-size:1.2em; text-align:center; }
+
 div#photo { padding:20px 0; }
 
 div#photo img { display:block; margin:auto; }
+div#photo div { padding-left:20px; }
 
 nav { margin-top:10px; }
 
@@ -26,10 +29,12 @@ span#aperture { width:40px; }
 span#exposure { width:55px; }
 span#iso { width:50px; margin:0; }
 
-nav a { display:inline-block; padding:10px 20px; width:280px; color:#666; }
+nav a, nav span { display:inline-block; padding:10px 20px; width:280px; color:#666; }
 
-nav a#archives { margin:0 8px; width:298px; text-align:center; }
+nav #archives { margin:0 8px; width:298px; text-align:center; }
 
-nav a#next { text-align:right; }
+nav #next { text-align:right; }
+
+nav span { color:#CCC; }
 
 footer { padding:10px 20px; font-size:.9em; text-align:center; margin-bottom:10px; }

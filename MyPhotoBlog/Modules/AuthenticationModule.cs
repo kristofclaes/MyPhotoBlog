@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Nancy;
+using MyPhotoBlog.Services;
 
 namespace MyPhotoBlog.Modules
 {
     public class AuthenticationModule : PhotoblogModule
     {
-        public AuthenticationModule() : base()
+        public AuthenticationModule(IDBFactory dbFactory) : base(dbFactory)
         {
             Get["/login"] = parameters =>
             {
