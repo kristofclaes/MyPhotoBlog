@@ -12,20 +12,13 @@ namespace MyPhotoBlog.Modules
         {
             Get["/"] = parameters =>
             {
-                // Get all photo's that are published
-                var photos = DB.Photos.FindAllByPublished(true);
+                var photos = DB.Photos.FindAllByPublished(true).OrderByDatePublishedDescending().Take(2);
                 List<Models.Photo> photoList = photos.ToList<Models.Photo>();
 
-                // Order them so the newest come first
-                photoList = photoList.OrderByDescending(p => p.DatePublished).ToList();
-
-                // Get most recent photo
-                var latestPhoto = photoList.FirstOrDefault();
-
-                if (latestPhoto != null)
+                if (photoList.Count > 0)
                 {
                     var model = new Models.PhotoDetail();
-                    model.Photo = latestPhoto;
+                    model.Photo = photoList[0];
                     model.NextSlug = String.Empty;
 
                     if (photoList.Count > 1) model.PreviousSlug = photoList[1].Slug;
