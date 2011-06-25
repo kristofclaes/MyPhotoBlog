@@ -59,7 +59,6 @@ namespace MyPhotoBlog.Modules
                     if (comment.IsValid())
                     {
                         DB.Comments.Insert(comment);
-                        Session.Delete("commenterror");
                     }
                     else
                     {
