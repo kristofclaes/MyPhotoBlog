@@ -14,5 +14,15 @@ namespace MyPhotoBlog.Models
 
         public string PreviousSlug { get; set; }
         public bool HasPrevious { get { return !String.IsNullOrEmpty(this.PreviousSlug); } }
+
+        public string ErrorMessage { get; set; }
+        public bool HasErrorMessage { get { return !String.IsNullOrEmpty(this.ErrorMessage); } }
+
+        public List<Comment> Comments { get; set; }
+
+        public PhotoDetail()
+        {
+            Comments = new List<Comment>();
+        }
     }
 }

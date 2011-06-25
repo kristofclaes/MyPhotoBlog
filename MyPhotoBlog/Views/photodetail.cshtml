@@ -13,7 +13,7 @@
 <body>
     <header>MyPhotoBlog</header>
     <div id="main">
-        <div id="name">@Model.Photo.Name</div>
+        <h1>@Model.Photo.Name</h1>
         <div id="photo">
             <img src="/Data/@Model.Photo.Filename" />
         </div>
@@ -45,6 +45,65 @@
                 <span id="next">Next &raquo;</span>
             }
         </nav>
+        <div id="comments">
+            <h2>Comments</h2>
+            <div id="commentsform">
+                <a name="comments"></a>
+
+                @foreach (var comment in @Model.Comments)
+                {
+                    <div class="comment">
+                        <div class="commenter">
+                            @if (String.IsNullOrEmpty(comment.Website))
+                            {
+                                @comment.Name <text> wrote:</text>
+                            }
+                            else
+                            {
+                                <a href="@comment.Website">@comment.Name</a> <text> wrote:</text>
+                            }
+                        </div>
+                        <div class="message">@comment.Message</div>
+                    </div>
+                }
+
+                <h3>Add a comment</h3>
+                <form action="/photo/@Model.Photo.Slug/addcomment" method="POST">
+                    @if (@Model.HasErrorMessage)
+                    {
+                        <div id="errormessage">
+                            @Model.ErrorMessage
+                        </div>
+                    }
+                    <div class="formitem">
+                        <label for="Name">Your name</label>
+                        <input type="text" id="Name" name="Name" />
+                        <span class="mandatory">*</span>
+                    </div>
+
+                    <div class="formitem">
+                        <label for="Email">Your email address</label>
+                        <input type="text" id="Email" name="Email" />
+                        <span class="mandatory">*</span>
+                    </div>
+
+                    <div class="formitem">
+                        <label for="Website">Your website</label>
+                        <input type="text" id="Website" name="Website" />
+                    </div>
+
+                    <div class="formitem">
+                        <label for="Message">Your message</label>
+                        <textarea id="Message" name="Message"></textarea>
+                        <span class="mandatory">*</span>
+                    </div>
+
+                    <div class="formitem">
+                        <input type="submit" id="commentsubmit" name="commentsubmit" value="Submit" />
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     <footer>MyPhotoBlog is built with <a href="https://github.com/NancyFX/Nancy">Nancy</a> and <a href="https://github.com/markrendle/Simple.Data">Simple.Data</a>.</footer>
 

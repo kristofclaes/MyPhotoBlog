@@ -2,13 +2,13 @@
 
 header, footer { width:960px; margin:auto; padding:10px 20px; }
 
-header, div#photo, footer, div#exif, nav a, nav span, div#name { background-color:#EFEFEF; }
+header, div#photo, footer, div#exif, nav a, nav span, h1, div#comments { background-color:#EFEFEF; }
 
 header { margin-top:10px; font-size:3em; line-height:1.5em; }
 
 div#main { width:1000px; margin:auto; margin-top:10px; margin-bottom:10px; }
 
-div#name { padding:20px; margin-bottom:10px; font-weight:bold; font-size:1.2em; text-align:center; }
+h1 { padding:20px; margin-bottom:10px; font-weight:bold; font-size:1.2em; text-align:center; }
 
 div#photo { padding:20px 0; }
 
@@ -36,5 +36,23 @@ nav #archives { margin:0 8px; width:298px; text-align:center; }
 nav #next { text-align:right; }
 
 nav span { color:#CCC; }
+
+div#comments { margin-top:10px; padding:20px; }
+
+h2 { font-weight:bold; font-size:1.2em; }
+h3 { font-weight:bold; }
+
+div#commentsform { margin:10px 20px; background-color:#E3E3E3; padding:20px; }
+div#commentsform h3 { margin:20px 0 10px 0; }
+div.formitem { margin-top:5px; }
+div.formitem label { width:150px; display:inline-block; vertical-align:top; padding-top:8px; }
+div.formitem span.mandatory { display:inline-block; vertical-align:top; padding-top:8px; }
+div.formitem input { border:1px solid #CCC; width:400px; border-radius:4px; background-color:#F3F3F3; font-size:1em; padding:4px; font-family:'Myriad Pro', Tahoma, Arial, Sans-Serif; }
+div.formitem textarea { border:1px solid #CCC; width:400px; height:120px; border-radius:4px; background-color:#F3F3F3; font-size:1em; padding:4px; font-family:'Myriad Pro', Tahoma, Arial, Sans-Serif; }
+div.formitem input[type=submit] { margin-left:153px; width:410px; background-color:#EAEAEA; font-weight:bold; }
+
+div#errormessage { margin:10px 0; color:#C00; }
+
+div.commenter { font-weight:bold; margin-top:10px; margin-bottom:4px; }
 
 footer { padding:10px 20px; font-size:.9em; text-align:center; margin-bottom:10px; }

@@ -24,7 +24,10 @@ namespace MyPhotoBlog.Modules
                     if (photoList.Count > 1) model.PreviousSlug = photoList[1].Slug;
                     else model.PreviousSlug = String.Empty;
 
-                    return View["photodetail.cshtml", model];
+                    IEnumerable<Models.Comment> comments = DB.Comments.FindAll(DB.Comments.PhotoId == model.Photo.Id && DB.Comments.Approved == true).Cast<Models.Comment>();
+                    if (comments != null) model.Comments = comments.ToList();
+
+                    return View["photodetail", model];
                 }
                 else
                 {
