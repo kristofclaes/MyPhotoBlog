@@ -24,7 +24,7 @@ namespace MyPhotoBlog.Modules
                     if (photoList.Count > 1) model.PreviousSlug = photoList[1].Slug;
                     else model.PreviousSlug = String.Empty;
 
-                    return View["photodetail", model];
+                    return View["photodetail.cshtml", model];
                 }
                 else
                 {

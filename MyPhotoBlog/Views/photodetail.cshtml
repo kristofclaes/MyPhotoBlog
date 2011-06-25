@@ -27,7 +27,7 @@
         <nav>
             @if (Model.HasPrevious)
             {
-                <a id="previous" href="/photos/@Model.PreviousSlug">&laquo; Previous</a>
+                <a id="previous" href="/photo/@Model.PreviousSlug">&laquo; Previous</a>
             }
             else
             {
@@ -38,7 +38,7 @@
 
             @if (Model.HasNext)
             {
-                <a id="next" href="/photos/@Model.NextSlug">Next &raquo;</a>
+                <a id="next" href="/photo/@Model.NextSlug">Next &raquo;</a>
             }
             else
             {
