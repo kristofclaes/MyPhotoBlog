@@ -12,6 +12,8 @@ namespace MyPhotoBlog.Modules
         {
             Get[""] = parameters =>
             {
+                var allDates = DB.Photos.Query().Select(DB.Photos.DatePublished).Where(DB.Photos.Published == true).OrderByDatePublishedDescending().ToScalarList<DateTime>();
+
                 return "All photo's of all years and months.";
             };
 
