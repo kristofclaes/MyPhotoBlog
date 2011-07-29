@@ -2,9 +2,10 @@
 
 header, footer { width:960px; margin:auto; padding:10px 20px; }
 
-header, div#photo, footer, div#exif, nav a, nav span, h1, div#comments { background-color:#EFEFEF; }
+header, div#photo, footer, div#exif, nav a, nav span, h1, div#comments, div#backtoarchives { background-color:#EFEFEF; }
 
 header { margin-top:10px; font-size:3em; line-height:1.5em; }
+header a {text-decoration: none;color: black; }
 
 div#main { width:1000px; margin:auto; margin-top:10px; margin-bottom:10px; }
 
@@ -14,6 +15,8 @@ div#photo { padding:20px 0; }
 
 div#photo img { display:block; margin:auto; }
 div#photo div { padding-left:20px; }
+
+div#backtoarchives {padding: 20px;text-align: center;margin-top: 10px; }
 
 nav { margin-top:10px; }
 
@@ -56,3 +59,5 @@ div#errormessage { margin:10px 0; color:#C00; }
 div.commenter { font-weight:bold; margin-top:10px; margin-bottom:4px; }
 
 footer { padding:10px 20px; font-size:.9em; text-align:center; margin-bottom:10px; }
+
+li {line-height: 1.3em; }

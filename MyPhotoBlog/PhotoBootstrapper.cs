@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Nancy;
+using Nancy.Cryptography;
 
 namespace MyPhotoBlog
 {
@@ -11,7 +12,7 @@ namespace MyPhotoBlog
         protected override void InitialiseInternal(TinyIoC.TinyIoCContainer container)
         {
             base.InitialiseInternal(container);
-            Nancy.Session.CookieBasedSessions.Enable(this, "ThePassphrase", "SomeSeasoning", "HeresMyHMAC");
+            Nancy.Session.CookieBasedSessions.Enable(this, CryptographyConfiguration.Default);
         }
     }
 }
